@@ -38,7 +38,7 @@ SECRET_KEY = 'django-insecure-(d_=$(fc#1qpv=6u%nl1accrrjl+5i!0%tliot)0-9tzea2jow
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['8000-martinbradbury-trihub-rrwm1fiy80t.ws-eu114.gitpod.io']
 
 
 # Application definition
@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'cloudinary',
+    'rest_framework',
 
 
 
@@ -140,3 +141,9 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://8000-martinbradbury-trihub-rrwm1fiy80t.ws-eu114.gitpod.io",
+    "https://*.herokuapp.com"
+]
