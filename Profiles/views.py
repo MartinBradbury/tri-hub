@@ -1,6 +1,6 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework import status, permissions, generics, filters
+from rest_framework import status, permissions, generics
 from .models import Profile
 from .serializer import ProfileSerializer
 from django.http import Http404
