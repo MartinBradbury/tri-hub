@@ -12,3 +12,8 @@ from trihub.permissions import IsOwnerOrReadOnly
 class EventListView(generics.ListAPIView):
     serializer_class = EventSerializer
     queryset = Event.objects.all()
+
+class EventListDetailView(generics.RetrieveAPIView):
+    serializer_class = EventSerializer
+    queryset = Event.objects.all()
+
