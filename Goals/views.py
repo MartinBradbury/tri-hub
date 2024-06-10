@@ -4,11 +4,11 @@ from rest_framework import status, permissions, generics
 from .models import Goal
 from .serializer import GoalSerializer
 from django.http import Http404
-from trihub.permissions import IsOwnerOrReadOnly, IsAuthOrReadOnly
+from trihub.permissions import IsOwnerOrReadOnly
 
 class GoalList(generics.ListCreateAPIView):
     serializer_class = GoalSerializer
-    permission_classes = [IsAuthOrReadOnly]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     queryset = Goal.objects.all()
 
     def perform_create(self, serializer):

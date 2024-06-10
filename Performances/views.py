@@ -4,7 +4,7 @@ from rest_framework import status, permissions, generics
 from.models import UserPerformance, Event
 from .serializer import EventSerializer, PerformanceSerializer
 from django.http import Http404
-from trihub.permissions import IsOwnerOrReadOnly, IsAuthOrReadOnly
+from trihub.permissions import IsOwnerOrReadOnly
 
 
 
@@ -19,7 +19,7 @@ class EventListDetailView(generics.RetrieveAPIView):
 
 class PerformanceListView(generics.ListCreateAPIView):
     serializer_class = PerformanceSerializer
-    permission_classes = [IsAuthOrReadOnly]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     queryset = UserPerformance.objects.all()
 
     def perform_create(self, serializer):
