@@ -1,5 +1,7 @@
 from rest_framework import serializers
 from .models import Goal
+from django.utils import timezone
+from datetime import timedelta
 
 class GoalSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
@@ -11,6 +13,13 @@ class GoalSerializer(serializers.ModelSerializer):
         request = self.context['request']
         return request.user == obj.owner
 
+    def validate_event_date(self, obj):
+        today = timezone.now().date()
+        three_weeks_from_today = today + timedelta(weeks=3)
+        
+        if obj < today or obj <= three_weeks_from_today:
+            raise serializers.ValidationError("The event date must be a minimum of 3 weeks from today.")
+        return obj
 
     class Meta:
         model = Goal

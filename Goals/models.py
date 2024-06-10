@@ -38,7 +38,7 @@ class Goal(models.Model):
         if existing_goal:
             # Delete the existing goal before saving the new one
             existing_goal.delete()
-        super().save(*args, **kwargs)  # Call the save() method
+        super().save(*args, **kwargs)
 
 
     class Meta:
