@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     'Goals',
     'Performances',
     'TrainingPlans',
+    'Posts',
 
 ]
 
