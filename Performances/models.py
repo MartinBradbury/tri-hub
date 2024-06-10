@@ -14,7 +14,7 @@ class Event(models.Model):
 
 
     
-class UserPeformance(models.Model):
+class UserPerformance(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     event = models.ForeignKey(Event, on_delete=models.CASCADE)
     time = models.TimeField(default='00:00:00', help_text="Enter time in HH:MM:SS format")
