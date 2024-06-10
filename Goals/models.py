@@ -17,7 +17,7 @@ class Goal(models.Model):
     (3, '9 Hours'),
     ]
 
-    owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    owner = models.OneToOneField(User, on_delete=models.CASCADE)
     event_date = models.DateField(blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -28,9 +28,22 @@ class Goal(models.Model):
     )
     completed = models.BooleanField(default=False)
 
+
+    """
+    Replacing Goal for user and saving to db
+    """
+    def save(self, *args, **kwargs):
+        # Check if the goal already exists for the user
+        existing_goal = Goal.objects.filter(owner=self.owner).first()
+        if existing_goal:
+            # Delete the existing goal before saving the new one
+            existing_goal.delete()
+        super().save(*args, **kwargs)  # Call the save() method
+
+
     class Meta:
         ordering = ['-created_at']
 
     def __str__(self):
-        return f'{self.owner}s Goals'
+        return f'{self.owner}s Goal'
 

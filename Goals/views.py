@@ -6,10 +6,13 @@ from .serializer import GoalSerializer
 from django.http import Http404
 from trihub.permissions import IsOwnerOrReadOnly
 
-class GoalList(generics.ListAPIView):
+class GoalList(generics.ListCreateAPIView):
     serializer_class = GoalSerializer
     permission_classes = [IsOwnerOrReadOnly]
     queryset = Goal.objects.all()
+
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)
 
 class GoalDetailList(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = GoalSerializer
