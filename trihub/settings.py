@@ -54,10 +54,10 @@ INSTALLED_APPS = [
     'rest_framework',
 
 
-
+    
     'Profiles',
     'Goals',
-    'Peformances/',
+    'Peformances',
 
 ]
 
