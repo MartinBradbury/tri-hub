@@ -24,7 +24,7 @@ class PostList(generics.ListCreateAPIView):
     ]
 
     filterset_fields = [
-        # 'owner__followed__owner__profile', #show post owner is following
+        'owner__followed__owner__profile', #show post owner is following
         'likes__owner__profile', #show posts that are liked by a specific user
         'owner__profile' #show posts that are owned by a specific user
     ]
