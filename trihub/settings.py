@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     'Performances',
     'TrainingPlans',
     'Posts',
+    'Comments',
 
 ]
 

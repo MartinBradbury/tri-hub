@@ -25,4 +25,5 @@ urlpatterns = [
     path('', include('Performances.urls')),
     path('', include('TrainingPlans.urls')),
     path('', include('Posts.urls')),
+    path('', include('Comments.urls')),
 ]
