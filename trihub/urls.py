@@ -23,4 +23,5 @@ urlpatterns = [
     path('', include('Profiles.urls')),
     path('', include('Goals.urls')),
     path('', include('Performances.urls')),
+    path('', include('TrainingPlans.urls')),
 ]
