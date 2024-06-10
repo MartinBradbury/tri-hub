@@ -33,7 +33,6 @@ class TrainingPlan(models.Model):
     ]
 
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
-    goal = models.ForeignKey(Goal, on_delete=models.CASCADE)
     title = models.CharField(max_length=50)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -50,12 +49,12 @@ class TrainingPlan(models.Model):
         default = 1,
     )
     content = models.TextField()
-    notes = models.TextField()
+    notes = models.TextField(blank=True)
     complete = models.BooleanField(default=False)
 
 
     def __str__(self):
-        return f"Title: {self.title} Difficulty: {self.plan_level} Hours per week: {self.hours_available} Weeks: {self.weeks_available} "
+            return f"{self.title} - Level: {self.get_plan_level_display()} - Hours/Week: {self.get_hours_available_display()} - Weeks: {self.get_weeks_available_display()}"
 
     class Meta:
         ordering = ['-plan_level', '-hours_available', '-weeks_available']

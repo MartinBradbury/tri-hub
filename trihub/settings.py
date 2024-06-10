@@ -58,7 +58,7 @@ INSTALLED_APPS = [
     'Profiles',
     'Goals',
     'Performances',
-    # 'TrainingPlans',
+    'TrainingPlans',
 
 ]
 
