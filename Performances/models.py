@@ -21,7 +21,6 @@ class UserPerformance(models.Model):
     complete_date = models.DateField()
     content = models.TextField(max_length=200)
 
-
     def __str__(self):
         return f"{self.owner.username}'s performance in {self.event.title} "
 
