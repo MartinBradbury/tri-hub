@@ -9,6 +9,7 @@ class PostSerializer(serializers.ModelSerializer):
     profile_image = serializers.ReadOnlyField(source='owner.profile.image.url')
     Like_id = serializers.SerializerMethodField()
     Likes_count = serializers.ReadOnlyField()
+    comment_count = serializers.ReadOnlyField()
     
 
     def get_is_owner(self, obj):
@@ -43,5 +44,5 @@ class PostSerializer(serializers.ModelSerializer):
         model = Post
         fields = ['id', 'owner', 'created_at', 'updated_at', 'title', 'content',
                   'image', 'is_owner', 'profile_id', 'profile_image', 'Like_id',
-                  'Likes_count',]
+                  'Likes_count', 'comment_count',]
             
