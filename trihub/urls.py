@@ -26,4 +26,5 @@ urlpatterns = [
     path('', include('TrainingPlans.urls')),
     path('', include('Posts.urls')),
     path('', include('Comments.urls')),
+    path('', include('Likes.urls')),
 ]
