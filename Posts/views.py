@@ -4,7 +4,7 @@ from rest_framework import status, permissions, generics
 from.models import Post
 from .serializer import PostSerializer
 from django.http import Http404
-from triathlon_nexus.permissions import IsOwnerOrReadOnly
+from trihub.permissions import IsOwnerOrReadOnly
 
 class PostList(generics.ListCreateAPIView):
 
