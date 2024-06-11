@@ -4,5 +4,5 @@ from rest_framework.response import Response
 @api_view()
 def root_route(request):
     return Response({
-        "message": "Welcome to my first API"
+        "message": "Welcome to my TriHub API"
     })
