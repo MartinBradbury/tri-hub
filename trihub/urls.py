@@ -28,4 +28,5 @@ urlpatterns = [
     path('', include('Comments.urls')),
     path('', include('Likes.urls')),
     path('', include('Followers.urls')),
+    path('dj-rest-auth/', include('dj_rest_auth.urls')),
 ]
