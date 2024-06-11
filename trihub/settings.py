@@ -91,9 +91,6 @@ INSTALLED_APPS = [
     'dj_rest_auth.registration',
     'dj_rest_auth.registration',
     'corsheaders',
-
-
-    
     'profiles',
     'goals',
     'performances',
@@ -109,7 +106,6 @@ INSTALLED_APPS = [
 SITE_ID = 1
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -117,7 +113,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'allauth.account.middleware.AccountMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    # 'allauth.account.middleware.AccountMiddleware',
 ]
 
 if 'CLIENT_ORIGIN_DEV' in os.environ:
