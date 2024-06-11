@@ -45,6 +45,7 @@ class Profile(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     first_name = models.CharField(max_length=50, blank=True)
     last_name = models.CharField(max_length=50, blank=True)
+    date_of_birth = models.DateField(null=True, blank=True)
     email = models.EmailField(max_length=254, blank=True)
     gender = models.CharField(
         max_length=1,

@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from .models import Profile
 from Followers.models import Follower
+import datetime
 
 class ProfileSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
@@ -23,6 +24,18 @@ class ProfileSerializer(serializers.ModelSerializer):
             return following.id if following else None
         return None
 
+    def validate_date_of_birth(self, obj):
+        if obj > datetime.date.today():
+            print("Cannot be in the future")
+            raise serializers.ValidationError("Date cannot be in the future.")
+        # Calculate age
+        today = datetime.date.today()
+        age = today.year - obj.year - ((today.month, today.day) < (obj.month, obj.day))
+        if age < 18:
+            self.context['can_create_training_plan'] = False
+            print("Under 18. Cannot create a training plan.")
+        return obj
+
 
     class Meta:
         model = Profile
@@ -31,5 +44,6 @@ class ProfileSerializer(serializers.ModelSerializer):
                   'email', 'gender', 'fitness_level', 
                   'image', 'content', 'is_owner', 'following_id',
                   'follower_count', 'following_count', 'post_count',
+                  'date_of_birth',
                   ]
             
