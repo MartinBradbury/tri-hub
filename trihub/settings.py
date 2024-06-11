@@ -67,7 +67,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEV' in os.environ
 
-ALLOWED_HOSTS = ['localhost', 'trihub.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', 'trihub-api-0d6dd53f4e6b.herokuapp.com']
 
 
 # Application definition
