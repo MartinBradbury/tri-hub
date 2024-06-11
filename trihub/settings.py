@@ -90,14 +90,14 @@ INSTALLED_APPS = [
 
 
     
-    'Profiles',
-    'Goals',
-    'Performances',
-    'TrainingPlans',
-    'Posts',
-    'Comments',
-    'Likes',
-    'Followers',
+    'profiles',
+    'goals',
+    'performances',
+    'trainingplans',
+    'posts',
+    'comments',
+    'likes',
+    'followers',
 
 ]
 
