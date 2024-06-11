@@ -70,7 +70,7 @@ DEBUG = 'DEV' in os.environ
 
 ALLOWED_HOSTS = [
    os.environ.get('ALLOWED_HOST'),
-   'localhost',
+   'localhost', '8000-martinbradbury-trihub-rrwm1fiy80t.ws-eu114.gitpod.io'
 ]
 
 
