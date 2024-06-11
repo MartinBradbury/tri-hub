@@ -18,7 +18,7 @@ class Goal(models.Model):
     ]
 
     owner = models.OneToOneField(User, on_delete=models.CASCADE)
-    event_date = models.DateField(blank=True)
+    event_date = models.DateField(blank=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     content = models.TextField(max_length=500, blank=True)

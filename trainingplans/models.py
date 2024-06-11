@@ -48,7 +48,7 @@ class TrainingPlan(models.Model):
         choices = WEEKS,
         default = 1,
     )
-    content = models.TextField()
+    content = models.TextField(blank=False)
     notes = models.TextField(blank=True)
     complete = models.BooleanField(default=False)
 
