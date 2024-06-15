@@ -15,18 +15,14 @@ import os
 import dj_database_url
 import re
 
-
-
 if os.path.exists('env.py'):
     import env
 
 CLOUDINARY_STORAGE = {
     'CLOUDINARY_URL': os.environ.get('CLOUDINARY_URL')
 }
-
 MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -46,18 +42,15 @@ if 'DEV' not in os.environ:
         'rest_framework.renderers.JSONRenderer',
     ]
 
-
 REST_USE_JWT = True
 JWT_AUTH_SECURE = True
 JWT_AUTH_COOKIE = 'my-app-auth'
 JWT_AUTH_REFRESH_COOKIE = 'my-refresh-token'
 JWT_AUTH_SAMESITE = 'None'
 
-# overwrite default user detail serializer
 REST_AUTH_SERIALIZERS = {
     'USER_DETAILS_SERIALIZER': 'trihub.serializer.CurrentUserSerializer'
 }
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
@@ -75,6 +68,7 @@ ALLOWED_HOSTS = [
 
 
 # Application definition
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -119,23 +113,19 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'allauth.account.middleware.AccountMiddleware',
 ]
-
-if 'CLIENT_ORIGIN' in os.environ:
-    CORS_ALLOWED_ORIGINS = [
-        os.environ.get('CLIENT_ORIGIN')
-    ]
-
 if 'CLIENT_ORIGIN_DEV' in os.environ:
     extracted_url = re.match(r'^.+-', os.environ.get('CLIENT_ORIGIN_DEV', ''), re.IGNORECASE).group(0)
     CORS_ALLOWED_ORIGIN_REGEXES = [
         rf"{extracted_url}(eu|us)\d+\w\.gitpod\.io$",
     ]
-# else:
-# CORS_ALLOWED_ORIGIN_REGEXES = [
-#         r'^https://.*\.gitpod\.io$',
-#     ]
+else:
+    CORS_ALLOWED_ORIGIN_REGEXES = [
+        r'^https://.*\.gitpod\.io$',
+    ]
+
 
 CORS_ALLOW_CREDENTIALS = True
+
 
 ROOT_URLCONF = 'trihub.urls'
 
@@ -173,6 +163,16 @@ else:
          'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
      }
 
+
+
+
+
+# Environment check for production database
+if os.getenv('DJANGO_ENVIRONMENT') == 'production':
+    DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+else:
+    # Development database remains unchanged
+    pass
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -214,7 +214,6 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
 
 CSRF_TRUSTED_ORIGINS = [
     "https://8000-martinbradbury-trihub-rrwm1fiy80t.ws-eu114.gitpod.io",
