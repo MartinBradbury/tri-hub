@@ -14,7 +14,7 @@ class PostList(generics.ListCreateAPIView):
         permissions.IsAuthenticatedOrReadOnly
     ]
     queryset = Post.objects.annotate(
-        Likes_count=Count('likes', distinct=True),
+        likes_count=Count('likes', distinct=True),
         comment_count=Count('comment', distinct=True)
     ).order_by('-created_at')
     
@@ -35,7 +35,7 @@ class PostList(generics.ListCreateAPIView):
         'title',
     ]
     ordering_fields = [
-        'Likes_count',
+        'likes_count',
         'comment_count',
         'likes__created_at',
         'comment__created_at',
