@@ -10,13 +10,7 @@ class ProfileSerializer(serializers.ModelSerializer):
     post_count = serializers.ReadOnlyField()
     follower_count = serializers.ReadOnlyField()
     following_count = serializers.ReadOnlyField()
-    date_of_birth = serializers.DateField(input_formats=['%d-%m-%Y', '%Y-%m-%d'])
-
-    def to_representation(self, instance):
-        representation = super().to_representation(instance)
-        # Ensure date_of_birth is represented in yyyy-mm-dd
-        representation['date_of_birth'] = representation['date_of_birth'].strftime('%Y-%m-%d')
-        return representation
+    date_of_birth = serializers.DateField(format='%Y-%m-%d')
 
     def get_is_owner(self, obj):
         request = self.context['request']
