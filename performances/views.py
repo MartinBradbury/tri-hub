@@ -36,7 +36,6 @@ class PerformanceListView(generics.ListCreateAPIView):
 
     search_fields = [
         'owner',
-        'title',
     ]
 
     def perform_create(self, serializer):
