@@ -7,6 +7,12 @@ class EventSerializer(serializers.ModelSerializer):
         model = Event
         fields = ['id', 'title', 'description', 'distance',]
 
+        def validate_id(self, value):
+            if not isinstance(value, int):
+                raise serializers.ValidationError("ID must be an integer")
+            return value
+
+
 class PerformanceSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
     is_owner = serializers.SerializerMethodField()
