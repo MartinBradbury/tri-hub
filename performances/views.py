@@ -25,12 +25,18 @@ class PerformanceListView(generics.ListCreateAPIView):
     filter_backends = [
         filters.OrderingFilter,
         DjangoFilterBackend,
+        filters.SearchFilter,
     ]
 
     ordering_fields = [
         'owner__username',
         'event',
         'time',
+    ]
+
+    search_fields = [
+        'owner__username',
+        'event',
     ]
 
     def perform_create(self, serializer):
