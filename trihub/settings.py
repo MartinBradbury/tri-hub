@@ -64,7 +64,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
    os.environ.get('ALLOWED_HOST'),
-   'localhost', '8000-martinbradbury-trihub-rrwm1fiy80t.ws-eu114.gitpod.io'
+   'localhost', '8000-martinbradbury-trihub-in4n673inl1.ws.codeinstitute-ide.net'
 ]
 
 

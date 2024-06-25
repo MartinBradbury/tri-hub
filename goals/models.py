@@ -9,7 +9,7 @@ Goals Model that the user will populate to be assigned a training plan.
 class Goal(models.Model):
 
     """
-    Choices for the hours available to train per week.
+    Choices for the hours available to train per week and plan length
     """
     HOURS_CHOICES = [
     (1, '3 Hours'),
@@ -17,11 +17,21 @@ class Goal(models.Model):
     (3, '9 Hours'),
     ]
 
+    LENGTH_CHOICES = [
+    (1, '3 Weeks'),
+    (2, '6 Weeks'),
+    (3, '9 Weeks'),
+    ]
+
     owner = models.OneToOneField(User, on_delete=models.CASCADE)
     event_date = models.DateField(blank=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     content = models.TextField(max_length=500, blank=True)
+    plan_length = models.IntegerField(
+        choices=LENGTH_CHOICES,
+        default=1,
+    )
     hours_per_week = models.IntegerField(
         choices=HOURS_CHOICES,
         default=1,
