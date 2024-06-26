@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 from goals.models import Goal
-from ckeditor.fields import RichTextField
 
 
 class TrainingPlan(models.Model):
@@ -49,8 +48,8 @@ class TrainingPlan(models.Model):
         choices = WEEKS,
         default = 1,
     )
-    content = RichTextField(blank=False)
-    notes = RichTextField(blank=True)  
+    content = models.TextField(blank=False)
+    notes = models.TextField(blank=True)  
     complete = models.BooleanField(default=False)
 
 
