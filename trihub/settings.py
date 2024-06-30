@@ -219,6 +219,6 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://8000-martinbradbury-trihub-rrwm1fiy80t.ws-eu114.gitpod.io",
+    "https://8000-martinbradbury-trihub-in4n673inl1.ws.codeinstitute-ide.net",
     "https://*.herokuapp.com"
 ]
