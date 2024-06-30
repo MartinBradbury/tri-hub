@@ -37,25 +37,28 @@ class TrainingPlan(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     plan_level = models.IntegerField(
-        choices = PLAN_DIFFICULTY,
-        default = 1,
+        choices=PLAN_DIFFICULTY,
+        default=1,
     )
     hours_available = models.IntegerField(
         choices=HOURS_CHOICES,
         default=1,
     )
     weeks_available = models.IntegerField(
-        choices = WEEKS,
-        default = 1,
+        choices=WEEKS,
+        default=1,
     )
     content = models.TextField(blank=False)
-    notes = models.TextField(blank=True)  
+    notes = models.TextField(blank=True)
     complete = models.BooleanField(default=False)
 
-
     def __str__(self):
-            return f"{self.title} - Level: {self.get_plan_level_display()} - Hours/Week: {self.get_hours_available_display()} - Weeks: {self.get_weeks_available_display()}"
+        return (
+            f"{self.title} - "
+            "Level: {self.plan_level} - "
+            "Hours/Week: {self.hours_available} - "
+            "Weeks: {self.weeks_available}"
+        )
 
     class Meta:
-        ordering = ['-plan_level', '-hours_available', '-weeks_available']
-
+        ordering = ["-plan_level", "-hours_available", "-weeks_available"]
