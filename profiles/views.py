@@ -8,16 +8,16 @@ from trihub.permissions import IsOwnerOrReadOnly
 from django.db.models import Count
 from django_filters.rest_framework import DjangoFilterBackend
 
+
 class ProfileList(generics.ListAPIView):
     serializer_class = ProfileSerializer
     permission_classes = [IsOwnerOrReadOnly]
     queryset = Profile.objects.annotate(
-        post_count = Count('owner__post', distinct=True),
-        follower_count = Count('owner__followed', distinct=True),
-        following_count = Count('owner__following', distinct=True),
+        post_count=Count('owner__post', distinct=True),
+        follower_count=Count('owner__followed', distinct=True),
+        following_count=Count('owner__following', distinct=True),
 
     ).order_by('-created_at')
-
 
     filter_backends = [
         filters.OrderingFilter,
@@ -31,9 +31,8 @@ class ProfileList(generics.ListAPIView):
 
     filterset_fields = [
         'owner__following__followed__profile',
-        'owner__followed__owner__profile', # get all profiles that are followed by a profile, given its id
+        'owner__followed__owner__profile',
     ]
-    
     ordering_fields = [
         'post_count',
         'follower_count',
@@ -42,13 +41,12 @@ class ProfileList(generics.ListAPIView):
         'owner__followed__created_at',
     ]
 
-        
 
 class ProfileDetail(generics.RetrieveUpdateAPIView):
     permission_classes = [IsOwnerOrReadOnly]
     queryset = Profile.objects.annotate(
-        post_count = Count('owner__post', distinct=True),
-        follower_count = Count('owner__followed', distinct=True),
-        following_count = Count('owner__following', distinct=True),      
+        post_count=Count('owner__post', distinct=True),
+        follower_count=Count('owner__followed', distinct=True),
+        following_count=Count('owner__following', distinct=True),
     ).order_by('-created_at')
     serializer_class = ProfileSerializer

@@ -14,8 +14,10 @@ UNKNOWN = 'U'
 
 
 """
-Profile Model that is created when a new user is created. 
+Profile Model that is created when a new user is created.
 """
+
+
 class Profile(models.Model):
 
     """
@@ -28,7 +30,6 @@ class Profile(models.Model):
         (NOT_IDENTIFIED, 'Not Identified'),
     ]
 
-
     """
     Fitness_level Choices
     """
@@ -38,7 +39,6 @@ class Profile(models.Model):
         (LOW, 'Low'),
         (UNKNOWN, 'Unknown')
     ]
-
 
     owner = models.OneToOneField(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -58,13 +58,13 @@ class Profile(models.Model):
         default=UNKNOWN,
     )
     image = models.ImageField(
-        upload_to = 'images/', default='../default_profile_qtk8ec'
+        upload_to='images/', default='../default_profile_qtk8ec'
     )
     content = models.TextField(blank=True)
 
     class Meta:
         ordering = ['-created_at']
-    
+
     def __str__(self):
         return f"{self.owner}'s profile"
 
@@ -78,4 +78,3 @@ def create_profile(sender, instance, created, **kwargs):
 django signals to profile is created every time a user is created.
 """
 post_save.connect(create_profile, sender=User)
-

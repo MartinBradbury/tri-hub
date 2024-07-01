@@ -2,6 +2,7 @@ from rest_framework import serializers
 from .models import TrainingPlan
 from django.contrib.humanize.templatetags.humanize import naturaltime
 
+
 class TrainingPlanSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
     is_owner = serializers.SerializerMethodField()
@@ -20,7 +21,8 @@ class TrainingPlanSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = TrainingPlan
-        fields = ['id', 'owner', 'title', 'created_at', 
-                'updated_at','is_owner', 'plan_level', 'hours_available',
+        fields = [
+                'id', 'owner', 'title', 'created_at',
+                'updated_at', 'is_owner', 'plan_level', 'hours_available',
                 'weeks_available', 'content', 'notes', 'complete',
                 ]

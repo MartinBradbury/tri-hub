@@ -1,11 +1,12 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status, permissions, generics, filters
-from.models import TrainingPlan
+from .models import TrainingPlan
 from .serializer import TrainingPlanSerializer
 from django.http import Http404
 from trihub.permissions import IsOwnerOrReadOnly, SpecificUserFullAccess
 from django_filters.rest_framework import DjangoFilterBackend
+
 
 class TrainingPlanListView(generics.ListCreateAPIView):
     serializer_class = TrainingPlanSerializer
@@ -32,6 +33,7 @@ class TrainingPlanListView(generics.ListCreateAPIView):
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
+
 
 class TrainingPlanDetailView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = TrainingPlanSerializer

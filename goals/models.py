@@ -4,24 +4,26 @@ from profiles.models import Profile
 
 
 """
-Goals Model that the user will populate to be assigned a training plan. 
+Goals Model that the user will populate to be assigned a training plan.
 """
+
+
 class Goal(models.Model):
 
     """
     Choices for the hours available to train per week and plan length
     """
     HOURS_CHOICES = [
-    (1, '3 Hours'),
-    (2, '6 Hours'),
-    (3, '9 Hours'),
-    ]
+        (1, '3 Hours'),
+        (2, '6 Hours'),
+        (3, '9 Hours'),
+        ]
 
     LENGTH_CHOICES = [
-    (1, '3 Weeks'),
-    (2, '6 Weeks'),
-    (3, '9 Weeks'),
-    ]
+        (1, '3 Weeks'),
+        (2, '6 Weeks'),
+        (3, '9 Weeks'),
+        ]
 
     owner = models.OneToOneField(User, on_delete=models.CASCADE)
     event_date = models.DateField(blank=False)
@@ -38,7 +40,6 @@ class Goal(models.Model):
     )
     completed = models.BooleanField(default=False)
 
-
     """
     Replacing Goal for user and saving to db
     """
@@ -50,10 +51,8 @@ class Goal(models.Model):
             existing_goal.delete()
         super().save(*args, **kwargs)
 
-
     class Meta:
         ordering = ['-created_at']
 
     def __str__(self):
         return f'{self.owner}s Goal'
-

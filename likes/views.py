@@ -3,6 +3,7 @@ from trihub.permissions import IsOwnerOrReadOnly
 from .models import Like
 from .serializer import LikeSerializer
 
+
 class LikeList(generics.ListCreateAPIView):
     serializer_class = LikeSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
@@ -10,6 +11,7 @@ class LikeList(generics.ListCreateAPIView):
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
+
 
 class LikeDetail(generics.RetrieveDestroyAPIView):
     serializer_class = LikeSerializer
