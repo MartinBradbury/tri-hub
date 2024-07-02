@@ -5,27 +5,18 @@ from goals.models import Goal
 
 class TrainingPlan(models.Model):
 
-    """
-    Choices for the difficulty of the training plan.
-    """
     PLAN_DIFFICULTY = [
         (1, 'Easy'),
         (2, 'Medium'),
         (3, 'Hard'),
         ]
 
-    """
-    Choices for the hours available to train per week.
-    """
     HOURS_CHOICES = [
         (1, '3 Hours'),
         (2, '6 Hours'),
         (3, '9 Hours'),
     ]
 
-    """
-    Choices for the weeks available to train per week.
-    """
     WEEKS = [
         (1, '3 Weeks'),
         (2, '6 Weeks'),

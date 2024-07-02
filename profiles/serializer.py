@@ -30,7 +30,6 @@ class ProfileSerializer(serializers.ModelSerializer):
         if obj > datetime.date.today():
             print("Cannot be in the future")
             raise serializers.ValidationError("Date cannot be in the future.")
-        # Calculate age
         today = datetime.date.today()
         age = (
             today.year - obj.year - ((today.month, today.day) < (obj.month, obj.day))

@@ -13,16 +13,9 @@ LOW = 'L'
 UNKNOWN = 'U'
 
 
-"""
-Profile Model that is created when a new user is created.
-"""
-
 
 class Profile(models.Model):
 
-    """
-    Gender_Choices
-    """
     GENDER_CHOICES = [
         (MALE, 'Male'),
         (FEMALE, 'Female'),
@@ -30,9 +23,6 @@ class Profile(models.Model):
         (NOT_IDENTIFIED, 'Not Identified'),
     ]
 
-    """
-    Fitness_level Choices
-    """
     FITNESS_CHOICES = [
         (HIGH, 'High'),
         (MEDIUM, 'Medium'),
@@ -74,7 +64,4 @@ def create_profile(sender, instance, created, **kwargs):
         Profile.objects.create(owner=instance)
 
 
-"""
-django signals to profile is created every time a user is created.
-"""
 post_save.connect(create_profile, sender=User)

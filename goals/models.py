@@ -40,9 +40,6 @@ class Goal(models.Model):
     )
     completed = models.BooleanField(default=False)
 
-    """
-    Replacing Goal for user and saving to db
-    """
     def save(self, *args, **kwargs):
         # Check if the goal already exists for the user
         existing_goal = Goal.objects.filter(owner=self.owner).first()

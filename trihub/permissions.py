@@ -8,9 +8,6 @@ class IsOwnerOrReadOnly(permissions.BasePermission):
         return obj.owner == request.user
 
 
-"""
-Identifies a specific authenticated user (me), eveyone else is readonly.
-"""
 
 
 class SpecificUserFullAccess(permissions.BasePermission):
