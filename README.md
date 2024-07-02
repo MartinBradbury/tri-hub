@@ -151,3 +151,94 @@ The Entity-Relationship Diagram (ERD) provides a visual representation of the da
 
 ### Frameworks, libraries and dependencies used in the backend part of the project.
 
+#### Django Dependencies
+
+1. Django (Django==5.0.6):
+    - Website: https://www.djangoproject.com
+    - Description: Django is a high-level Python web framework that encourages rapid development and clean, pragmatic design. Built by experienced developers, it takes care of much of the hassle of web development, so you can focus on writing your app without needing to reinvent the wheel.
+
+2. django-allauth (django-allauth==0.54.0):
+    -  Website: https://django-allauth.readthedocs.io/en/latest/
+    - Description: django-allauth provides an easy-to-use interface for authentication using various providers like Google, Facebook, Twitter, etc., and also supports traditional username/password authentication.
+
+3. django-ckeditor (django-ckeditor==6.7.1):
+    - Website: https://ckeditor.com/docs/ckeditor4/latest/builds/ckfinder.html
+    - Description: CKEditor for Django is a rich text editor integrated with Django admin. It allows users to input formatted text easily through a WYSIWYG interface.
+
+4. django-cloudinary-storage (django-cloudinary-storage==0.3.0):
+    - Website: https://pypi.org/project/django-cloudinary-storage/
+    - Description: This package integrates Cloudinary storage backend with Django models, allowing for easy image and file uploads to Cloudinary.
+
+5. django-cors-headers (django-cors-headers==4.3.1):
+    - Website: https://github.com/adamchainz/django-cors-headers
+    - Description: A Django App for handling Cross Origin Resource Sharing (CORS). It simplifies the process of setting up CORS for your Django application.
+
+6. django-filter (django-filter==24.2):
+    - Website: https://django-filter.readthedocs.io/en/stable/
+    - Description: Provides a simple way to create filters for Django QuerySets. It's useful for creating complex queries based on user input.
+
+7. django-js-asset (django-js-asset==2.2.0):
+    - Website: https://github.com/codingeek/django-js-assets
+    - Description: A Django app to manage JavaScript assets. It helps in organizing and managing JavaScript files in a Django project.
+
+8. djangorestframework (djangorestframework==3.15.1):
+    - Website: https://www.django-rest-framework.org
+    - Description: Django REST Framework is a powerful and flexible toolkit for building Web APIs. It makes it easy to build APIs that don't require Django templates and allows for easy integration with other libraries.
+
+9. djangorestframework-simplejwt (djangorestframework-simplejwt==5.3.1):
+    - Website: https://jpadilla.github.io/django-rest-framework-simplejwt/
+    - Description: Simple JWT is a JSON Web Token authentication plugin for the Django REST Framework. It provides token-based authentication out of the box.
+
+#### Other Dependencies
+
+1. asgiref (asgiref==3.8.1):
+    - Website: https://asgiref.readthedocs.io/en/stable/
+    - Description: AsgiRef is a collection of utilities for working with ASGI servers and applications. It provides a common interface for interacting with asynchronous server gateways.
+
+2. cloudinary (cloudinary==1.40.0):
+    - Website: https://cloudinary.com/documentation/python_integration
+    - Description: Cloudinary is a cloud-based service that provides an end-to-end image and video management solution including uploads, storage, manipulations, optimizations, and delivery.
+
+3. dj-database-url (dj-database-url==2.2.0):
+    - Website: https://pypi.org/project/dj-database-url/
+    - Description: dj-database-url is a small utility for parsing DATABASE_URL from environment variables and returning a dictionary suitable for passing to Django’s DATABASES setting.
+
+4. dj-rest-auth (dj-rest-auth==2.1.9):
+    - Website: https://dj-rest-auth.readthedocs.io/en/latest/
+    - Description: dj-rest-auth is a set of Django apps that provides authentication views and serializers for Django Rest Framework.
+
+5. gunicorn (gunicorn==22.0.0):
+    - Website: https://gunicorn.org
+    - Description: Gunicorn 'Green Unicorn' is a Python WSGI HTTP Server for UNIX. It's a pre-fork worker model ported from Ruby's Unicorn server.
+
+6. oauthlib (oauthlib==3.2.2):
+    - Website: https://oauthlib.readthedocs.io/en/latest/
+    - Description: OAuthLib is a generic library to implement OAuth1 and OAuth2 protocols. It provides a set of classes and methods to simplify the process of implementing these protocols.
+
+7. pillow (pillow==10.3.0):
+    - Website: https://pillow.readthedocs.io/en/stable/
+    - Description: Pillow is a fork of PIL (Python Imaging Library) aiming to add some user-friendly features.
+
+8. psycopg2 (psycopg2==2.9.9):
+    - Website: https://www.psycopg.org/docs/
+    - Description: Psycopg2 is a PostgreSQL database adapter for Python. It provides a simple and efficient way to interact with PostgreSQL databases.
+
+9. PyJWT (PyJWT==2.8.0):
+    - Website: https://pyjwt.readthedocs.io/en/latest/
+    - Description: PyJWT is a Python library which allows you to encode, decode, and verify JSON Web Tokens (JWT).
+
+10. python3-openid (python3-openid==3.2.0):
+    - Website: https://openid.net/developers/libraries/python-openid/
+    - Description: python3-openid is a Python library for OpenID authentication. It allows users to authenticate via OpenID providers such as Google, Yahoo, etc.
+
+11. pytz (pytz==2024.1):
+    - Website: http://pytz.sourceforge.net/
+    - Description: pytz brings the Olson tz database into Python. This allows accurate and cross platform timezone calculations.
+
+12. requests-oauthlib (requests-oauthlib==2.0.0):
+    - Website: https://requests-oauthlib.readthedocs.io/en/latest/
+    - Description: requests-oauthlib is a library that combines the power of Requests and OAuthlib to provide a higher level API for making authenticated HTTP requests.
+
+13. sqlparse (sqlparse==0.5.0):
+    - Website: https://sqlparse.readthedocs.io/en/latest/
+    - Description: sqlparse is a non-validating SQL parser for Python. Its goal is to be fully compatible with Python’s sqlite3 module.
