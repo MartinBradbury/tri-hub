@@ -84,3 +84,18 @@ In the development environment, trihub uses SQLite, which is simple to set up an
 - **Functionality**: Stores training plans created by site admin.
 - **Impact**: Enables users to get a custom built training plan based on their hours available and weeks available set in their goal.
 - **Example**: A user creates a specific goal, the training plan that meets their creteria is generated for the user to see.
+
+### User Model (from django.contrib.auth.models)
+- **Fields**: `id`, `username`, `password`, `created_at`, `updated_at`
+- **Functionality**: Manages user authentication and basic information.
+- **Impact**: Provides essential authentication functionality, ensuring users can securely log in and access their accounts.
+- **Example**: Users can register, log in, and have their authentication details securely stored.
+
+## Database Design
+
+### Entity-Relationship Diagram
+
+The Entity-Relationship Diagram (ERD) provides a visual representation of the database's structure. It helps in planning and illustrating the SQL tables and the relationships between them. The ERD is an essential part of the database design that shows the entities, their attributes, and the types of relationships among the entities.
+
+![trihub api ERD](/assets/trihub-apiERD.png)
+
