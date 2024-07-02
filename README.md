@@ -20,7 +20,7 @@ The trihub API serves as the backend service for the trihub Application, [view l
 
 This is the API for the trihub backend application. Detailed information about strategy, structure, skeleton, ux, testing and open issues are found in the frontend repository README and TESTING information.
 
-- The Pixavibe [frontend repository](https://github.com/MartinBradbury/trihub)
+- The trihub [frontend repository](https://github.com/MartinBradbury/trihub)
 
 ## Database and Model
 
@@ -242,3 +242,123 @@ The Entity-Relationship Diagram (ERD) provides a visual representation of the da
 13. sqlparse (sqlparse==0.5.0):
     - Website: https://sqlparse.readthedocs.io/en/latest/
     - Description: sqlparse is a non-validating SQL parser for Python. Its goal is to be fully compatible with Python’s sqlite3 module.
+
+## Testing and Issues
+
+Information about how the project was tested & Issues encountered, please refer to the [trihub, TESTING.md](https://github.com/MartinBradbury/trihub)
+
+## Deployment
+
+
+### Version Control
+
+The site was created using the Gitpod editor and pushed to github to the remote repository ‘trihub’.
+The following git commands were used throughout development to push code to the remote repo:
+
+- `git add <file>` - This command was used to add the file(s) to the staging area before they are committed.
+- `git commit -m “commit message”` - This command was used to commit changes to the local repository queue ready for the final step.
+- `git push` - This command was used to push all committed code to the remote repository on github.
+
+
+### Heroku
+
+
+### To deploy the project to Heroku, I took the following steps
+
+
+Create a new workspace in your preferred IDE, in our case it was [Gitpod](https://www.gitpod.io/docs/introduction/getting-started), and set up the new trihub api project. Use [Django REST framwork](https://www.django-rest-framework.org/) guide. 
+
+**Project Settings**
+
+- Include https://<your_app_name>.herokuapp.com in the ALLOWED_HOSTS and CSRF_TRUSTED_ORIGINS lists inside the settings.py file.
+- Make sure that the environment variables (DATABASE_URL, SECRET_KEY, and CLOUDINARY_URL) are correctly set to os.environ.get("<variable_name>")
+- Make sure that DEBUG is set to false.
+- If making changes to static files or apps, make sure to run collectstatic or migrate as needed.
+- Commit and push to the repository.
+
+**Requirements**
+
+- Create a plain file called Procfile without any file suffix, at the root level of the project.
+  - Add to the Procfile and save.
+    - `release: python manage.py makemigrations && python manage.py migrate`
+    - `web: gunicorn drf_api.wsgi`
+- In your IDE terminal, type pip3 freeze local > requirements.txt to create the requirements.
+- (Optional) Create a runtime.txt and type python-3.11.9 (or whichever version you use)
+- Commit and push these files to the project repository.
+
+ **Deployment to Heroku**
+
+- In your heroku account, select New and then Create New App.
+- Give it a unique name related to your project, choose the correct region for where you are located.
+- Create app
+- Goto 'Settings' tab and the Config Vars. For Heroku to be able to process and render the project, you must define some environment variables:
+  - Add DATABASE_URL variable and assign it a link to your database
+  - Add SECRET_KEY variable and assign it a secret key of your choice
+  - Add CLOUDINARY_URL variable and assign it a link to your Cloudinary
+  - Add ALLOWED_HOST variable and assign it the url of the deployed heroku link
+  - Add CLIENT_ORIGIN variable and assign it the url of your deployed frontend app
+  - Add CLIENT_ORIGIN_DEV variable and assign it the url of your local development client
+
+- Continue to the 'Deploy' tab. 
+  - Select GitHub as the 'deployment method'.
+  - Confirm connection to git hub by searching for the correct repository and then connecting to it.
+  - To manually deploy project click 'Deploy Branch'. 
+      - Don't forget to ensure Debug is false for final deployment
+  - Once built a message will appear saying: Your app was successfully deployed. 
+  - Click the view button to view the deployed page making a note of it's url.
+
+
+### Github
+
+
+### >How to Clone the Repository
+
+
+Cloning a GitHub repository creates a local copy on your machine, allowing you to sync between the two locations. Here are the steps:
+
+
+- Log in (or sign up) to GitHub.
+- Navigate to the GitHub Repository you want to clone to use locally.
+- Click on the code button
+- Select whether you would like to clone with HTTPS, SSH or GitHub CLI and copy repository link to the clipboard.
+- Open the terminal in your code editor of choice (git must be installed for the nextcoming steps)
+- Change the current working directory to the location you want to use for the cloned directory.
+- Type 'git clone' into the terminal and then paste the link you copied previously. Press enter.
+- If you are working in VSCode, create a virtual environment with command: `python3 -m venv .venv` 
+- Agree to select as workspace folder. 
+- Move to the virtual environment with command: `source .venv/bin/activate`
+- Import all dependencies with command: `pip3 install -r requirements.txt`
+- Create an 'env.py' file in the main directory.
+- Enter key data, such as: SECRET_KEY, CLIENT_ORIGIN_DEV, CLOUDINARY_URL, DATABASE_URL and ['DEV'] = '1'
+- Check that both the virtual environment and env.py are named in the .gitignore file.
+- Check it's all working by running the server, use command: `python3 manage.py runserver`
+
+### How to Fork the Repository
+
+Most commonly, forks are used to either propose changes to someone else's project or to use someone else's project as a starting point for your own idea. In order to protect the main branch while you work on something new, essential when working as part of a team or when you want to experiment with a new feature, you will need to fork a branch.
+
+
+- Log in (or sign up) to Github.
+- Go to the selected repository.
+- Click the Fork button in the top right corner and select create a fork.
+- One can change the name of the fork and add description
+- Choose to copy only the main branch or all branches to the new fork.
+- Click Create a Fork. A repository should appear in your GitHub
+
+## Credits
+
+### Content
+
+
+In the creation of TriHub, a broad spectrum of resources has been leveraged to guarantee the platform's strength, ease of use, and interactivity. The following compilation encompasses pivotal documentation, blog posts, tutorials, and manuals that have significantly contributed to the development of its backend infrastructure:
+
+- **Bootstrap**: Extensively used for styling and responsive design, making the site accessible on a variety of devices - [Bootstrap documentation](https://getbootstrap.com/).
+- **Django**: As the backbone of our platform, Django's comprehensive documentation has been crucial for backend development - [Django documentation](https://docs.djangoproject.com/en/5.0/).
+
+- **Sources of inspiration and guidance in general**:
+  - This resources is only available to enrolled students at The Code Institute:
+  - The Code Institute Diploma in Full Stack Software Development (Advanced Front-End) Walk-through project Django REST framework (backend)
+
+### Acknowledgement
+
+Please see the [frontend README](https://github.com/MartinBradbury/trihub/blob/main/README.md).
