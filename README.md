@@ -1,5 +1,5 @@
 # trihub API
-![amiresponsive]()
+![amiresponsive](/assets/responsive.png)
 <br>
 <br>
 
