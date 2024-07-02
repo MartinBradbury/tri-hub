@@ -99,3 +99,55 @@ The Entity-Relationship Diagram (ERD) provides a visual representation of the da
 
 ![trihub api ERD](/assets/trihub-apiERD.png)
 
+**Relationships**
+
+1. User
+  - One-to-One: User.id → Profile.owner
+  - One-to-Many: User.id → Post.owner
+  - One-to-Many: User.id → Comment.owner
+  - Many-to-Many (through Follower): User.id → Follower.owner
+  - Many-to-Many (through Follower): User.id → Follower.followed
+  - Many-to-Many (through Like): User.id → Like.owner
+  - One-to-Many: User.id → Contact.owner
+
+
+2. Profile
+  - One-to-One: Profile.owner → User.id
+
+3. Post
+  - Many-to-One: Post.owner → User.id
+  - One-to-Many: Post.id → Comment.post
+  - Many-to-Many (through Like): Post.id → Like.post
+
+4. Comment
+  - Many-to-One: Comment.owner → User.id
+  - Many-to-One: Comment.post → Post.id
+
+5. Like
+  - Many-to-One: Like.owner → User.id
+  - Many-to-One: Like.post → Post.id
+
+6. Follower
+  - Many-to-One: Follower.owner → User.id
+  - Many-to-One: Follower.followed → User.id
+
+7. Event
+  - One-to-Many: Event.id → Performance.event
+
+8. Performance
+  - Many-to-One: Performance.owner → User.id
+
+9. Goal
+   - One-to-One: Goal.id → User.id
+
+10. Training Plan
+   - One-to-One: TrainingPlan.id → User.id
+
+## Technologies
+
+### Language
+
+- [Python](https://www.python.org/) serves as the back-end programming language.
+
+### Frameworks, libraries and dependencies used in the backend part of the project.
+
