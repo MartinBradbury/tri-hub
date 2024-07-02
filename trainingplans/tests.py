@@ -22,6 +22,3 @@ class GoalViewTests(APITestCase):
         self.client.login(username='jacob', password='pw')
         response = self.client.get('/trainingplans/')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-
-
-

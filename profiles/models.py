@@ -13,7 +13,6 @@ LOW = 'L'
 UNKNOWN = 'U'
 
 
-
 class Profile(models.Model):
 
     GENDER_CHOICES = [

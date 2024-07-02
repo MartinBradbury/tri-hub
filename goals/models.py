@@ -3,16 +3,8 @@ from django.contrib.auth.models import User
 from profiles.models import Profile
 
 
-"""
-Goals Model that the user will populate to be assigned a training plan.
-"""
-
-
 class Goal(models.Model):
 
-    """
-    Choices for the hours available to train per week and plan length
-    """
     HOURS_CHOICES = [
         (1, '3 Hours'),
         (2, '6 Hours'),
@@ -41,10 +33,8 @@ class Goal(models.Model):
     completed = models.BooleanField(default=False)
 
     def save(self, *args, **kwargs):
-        # Check if the goal already exists for the user
         existing_goal = Goal.objects.filter(owner=self.owner).first()
         if existing_goal:
-            # Delete the existing goal before saving the new one
             existing_goal.delete()
         super().save(*args, **kwargs)
 
